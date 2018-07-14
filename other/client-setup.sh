@@ -267,7 +267,8 @@ __EOF__
 
 	echo "Starting service..."
 	echo
-	sudo chown "$RUNUSER" "$_CLIENT"
+	sudo chown "$RUNUSER" "$_CLIENT":
+	sudo 700 "$_CLIENT"
 	if [ $REPLACE ]; then
 		sudo systemctl stop serverstatus.service
 		sleep 1
@@ -364,7 +365,8 @@ __EOF__
 
 	echo "Starting service..."
 	echo
-	sudo chown "$RUNUSER" "$_CLIENT"
+	sudo chown "$RUNUSER" "$_CLIENT":
+	sudo 700 "$_CLIENT
 	sudo chmod +x /etc/init.d/serverstatus
 	if [ $REPLACE ]; then
 		sudo service serverstatus stop
